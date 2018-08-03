@@ -16,8 +16,8 @@ phases:
       # Remove existing node_modules to clear dev dependencies
 
       # Install runtime dependencies
-    - npm install --production
-    - npm run timestampFix
+      - npm install --production
+      - npm run timestampFix
 
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
 artifacts:
