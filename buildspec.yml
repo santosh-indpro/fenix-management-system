@@ -17,7 +17,8 @@ phases:
 
       # Install runtime dependencies
       - npm install --production
-      - npm run timestampFix
+      - touch -t 200001010000 /tmp/timestamp # make a file with a timestamp of the year 2000
+      - find . ! -newer /tmp/timestamp -exec touch -t 201701010000 '{}' \; # update all files with earlier timestamps
 
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
 artifacts:
