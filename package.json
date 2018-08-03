@@ -14,7 +14,8 @@
     "devServerReact": "react-scripts start",
     "build": "npm-run-all -p clearBuild buildProd",
     "buildProd": "react-scripts build",
-    "clearBuild": "rm -r build"
+    "clearBuild": "rm -r build",
+    "timestampFix": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
   },
   "dependencies": {
     "jquery": "^3.3.1",
