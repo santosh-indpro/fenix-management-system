@@ -1,15 +1,48 @@
 {
-  "name": "Node-Webiste-EB-Sample-App",
-  "description": "Sample NodeJs web application",
+  "name": "Fenix-Management-System-App",
+  "description": "Fenix-Management-System-App",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "mocha": "5.0.0",
-    "unit.js": "2.0.0",
-    "supertest": "3.0.0"
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.0"
   },
   "scripts": {
     "start": "node app.js",
-    "test": "mocha --recursive tests --exit"
+    "dev": "npm-run-all -p devServerReact buildProd",
+    "devServerReact": "react-scripts start",
+    "build": "npm-run-all -p clearBuild buildProd",
+    "buildProd": "react-scripts build",
+    "clearBuild": "rm -r build"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "material-ui": "^0.20.1",
+    "npm-run-all": "^4.1.3",
+    "react": "16.2.0",
+    "react-dom": "16.2.1",
+    "react-loading": "^2.0.2",
+    "react-redux": "5.0.6",
+    "react-router": "4.2.0",
+    "react-router-dom": "4.2.2",
+    "react-router-redux": "next",
+    "react-scripts": "^1.0.17",
+    "react-tap-event-plugin": "^3.0.3",
+    "redux": "3.7.2",
+    "redux-devtools-extension": "2.13.2",
+    "redux-form": "^7.4.2",
+    "redux-form-material-ui": "^4.3.1",
+    "redux-form-website-template": "0.0.123",
+    "redux-thunk": "2.2.0",
+    "sanitize.css": "5.0.0",
+    "toastr": "2.1.2",
+    "validate.js": "^0.12.0"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
